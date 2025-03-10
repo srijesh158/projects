@@ -1,38 +1,27 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Login from "./Login";
 import Dashboard from "./Dashboard";
-import Laptops from "./Laptops";
-import MObiles from "./Mobiles";
-import Watches from "./Watches";
+import { Laptops, Mobiles, Watches } from "./ProductList";
+import ProductDetails from "./ProductDetails";
 import Error from "./Error";
-import Mobiles from "./Mobiles";
+
 const Master = ()=>{
     return(
         <>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Login></Login>}></Route>
-                    
-                    <Route path="/dashboard" element={<Dashboard></Dashboard>}>
-                        <Route path="dashboard/laptops" element={<Laptops></Laptops>}></Route>
-                        <Route path="dashboard/mobiles" element={<Mobiles></Mobiles>}></Route>    
-                        <Route path="dashboard/watches" element={<Watches></Watches>}></Route>
+                    <Route path="/" element={<Login />} />
+                    <Route path="/dashboard" element={<Dashboard />}>
+                        <Route index element={<Laptops />} />
+                        <Route path="mobiles" element={<Mobiles />} /> {/* ✅ Fix here */}
+                        <Route path="watches" element={<Watches />} /> {/* ✅ Fix here */}
                     </Route>
-
-                    <Route path="/error" element={<Error></Error>}></Route>
-                
+                    <Route path="/product/:type/:id" element={<ProductDetails />} />
+                    <Route path="/error" element={<Error />} />
                 </Routes>
             </BrowserRouter>
         </>
-    )
+    );
 }
+
 export default Master;
-
-
-
-
-
-
-
-
-

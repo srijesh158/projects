@@ -8,7 +8,7 @@ const ProductList = ({ endpoint }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`http://localhost:9001/${endpoint}`).then(res => setProducts(res.data));
+        axios.get(`http://localhost:9000/${endpoint}`).then(res => setProducts(res.data));
     }, [endpoint]);
 
     return (

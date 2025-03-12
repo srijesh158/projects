@@ -1,7 +1,7 @@
 const Error = ()=>{
     return(
         <>
-            <h1>Auth Fail : 404</h1>
+            <h1>AUth Fail : 404</h1>
         </>
     )
 }
